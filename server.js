@@ -5,6 +5,7 @@ var express = require('express'),
     helmet = require('helmet'),
     trades = require('./server/trades'),
     sqlinit = require('./server/sqlinit'),
+    path = require('path'),
     app = express();
 
 app.set('port', process.env.PORT || 5000);
@@ -14,8 +15,9 @@ app.use(compression());
 app.use(cors());
 app.use(helmet());
 
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-app.use('/', express.static(__dirname + '/www'));
+
 app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
