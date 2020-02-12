@@ -16,11 +16,11 @@ class App extends Component {
         trades: [{}]
     };
 
-    componentDidMount() {  
+    componentDidMount() {
         this.getData();
     }
     getData = () => {
-        fetch('http://localhost:5000/trades')
+        fetch('http://0.0.0.0:5000/trades')
           .then(res => res.json())
           .then(data => {
             this.setState({ trades: [...data] });

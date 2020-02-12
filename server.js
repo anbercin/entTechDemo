@@ -9,6 +9,7 @@ var express = require('express'),
     app = express();
 
 app.set('port', process.env.PORT || 5000);
+app.set('domain','0.0.0.0');
 
 app.use(bodyParser.json());
 app.use(compression());
