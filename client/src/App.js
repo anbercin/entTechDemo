@@ -21,7 +21,7 @@ class App extends Component {
         this.getData();
     }
     getData = () => {
-        fetch('http://0.0.0.0:5000/trades')
+        fetch('/trades')
           .then(res => res.json())
           .then(data => {
             this.setState({ trades: [...data] });
