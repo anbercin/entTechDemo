@@ -5,6 +5,7 @@ class App extends Component {
     render() {
         return (
           <div className="App">
+          <h3>Trades List</h3>
             <Table data={this.state.trades}/>
           </div>
         )
