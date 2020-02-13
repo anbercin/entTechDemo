@@ -21,12 +21,12 @@ class App extends Component {
         this.getData();
     }
     getData = () => {
-        fetch('/trades')
+        fetch('/transactions')
           .then(res => res.json())
           .then(data => {
             this.setState({ trades: [...data] });
             // call getData() again in 5 seconds
-            this.intervalID = setTimeout(this.getData.bind(this), 5000);
+            //this.intervalID = setTimeout(this.getData.bind(this), 5000);
           });
       }
       componentWillUnmount() {
@@ -36,7 +36,7 @@ class App extends Component {
           'clearTimeout()` here rather than `clearInterval()` as
           in the previous example.
         */
-        clearTimeout(this.intervalID);
+        //clearTimeout(this.intervalID);
       }
 }
 

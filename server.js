@@ -4,6 +4,7 @@ var express = require('express'),
     cors = require('cors'),
     helmet = require('helmet'),
     trades = require('./server/trades'),
+    transactions = require('./server/transactions'),
     sqlinit = require('./server/sqlinit'),
     path = require('path'),
     app = express();
@@ -26,6 +27,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/trades',  trades.findAll);
+app.get('/transactions',  transactions.findAll);
 
 app.use(function(err, req, res, next) {
     console.error(err.stack);

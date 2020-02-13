@@ -6,11 +6,13 @@ var express = require('express'),
     cors = require('cors'),
     helmet = require('helmet'),
     trades = require('./server/trades'),
+    transactions = require('./server/transactions'),
     sqlinit = require('./server/sqlinit'),
     path = require('path'),
     app = express();
 
 app.set('port', process.env.PORT || 5000);
+app.set('domain', '0.0.0.0');
 app.use(bodyParser.json());
 app.use(compression());
 app.use(cors());
@@ -22,6 +24,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.get('/trades', trades.findAll);
+app.get('/transactions', transactions.findAll);
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).send(err);
